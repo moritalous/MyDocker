@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  n8n:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        N8N_VERSION: "0.73.0"
+    restart: always
+    ports:
+      - 5678:5678
+    environment:
+      - GENERIC_TIMEZONE=Asia/Tokyo
+      - N8N_PORT=5678
+      - NODE_ENV=production
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./.n8n:/root/.n8n
+      - ./data:/data
+
