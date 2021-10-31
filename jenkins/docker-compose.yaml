@@ -1,0 +1,43 @@
+version: '3.9'
+
+services:
+  docker:
+    image: docker:dind
+    privileged: true
+    networks: 
+      - jenkins-network
+    environment:
+      DOCKER_TLS_CERTDIR: /certs
+    volumes:
+      - ./jenkins-docker-certs:/certs/client
+      - jenkins-data:/var/jenkins_home
+    expose:
+      - "2376"
+
+  jenkins-blueocean:
+    build: .
+    depends_on:
+      - jenkins-docker
+    networks: 
+      - jenkins-network
+    environment:
+      DOCKER_HOST: "tcp://docker:2376"
+      DOCKER_CERT_PATH: /certs/client
+      DOCKER_TLS_VERIFY: 1
+    expose:
+      - "8080"
+      - "50000"
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - ./jenkins-docker-certs:/certs/client:ro
+      - jenkins-data:/var/jenkins_home
+
+networks:
+  jenkins-network:
+    driver: bridge
+
+volumes:
+  jenkins-data:
+    driver: local
