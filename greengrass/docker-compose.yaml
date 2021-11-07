@@ -15,3 +15,15 @@ services:
       - ./aws:/root/.aws/:ro
     environment:  
       - PROVISION=true
+      - TINI_KILL_PROCESS_GROUP=1
+      - GGC_ROOT_PATH=/greengrass/v2
+      - AWS_REGION=us-east-1
+      - THING_NAME=default_thing_name
+      - THING_GROUP_NAME=default_thing_group_name
+      - TES_ROLE_NAME=default_tes_role_name
+      - TES_ROLE_ALIAS_NAME=default_tes_role_alias_name
+      - COMPONENT_DEFAULT_USER=default_component_user
+      - DEPLOY_DEV_TOOLS=false
+      - INIT_CONFIG=default_init_config
+      - TRUSTED_PLUGIN=default_trusted_plugin_path
+      - THING_POLICY_NAME=default_thing_policy_name

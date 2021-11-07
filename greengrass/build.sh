@@ -1,19 +1,5 @@
 #/bin/sh
 
-export TINI_KILL_PROCESS_GROUP=1
-export GGC_ROOT_PATH=/greengrass/v2
-export PROVISION=false
-export AWS_REGION=us-east-1
-export THING_NAME=default_thing_name
-export THING_GROUP_NAME=default_thing_group_name
-export TES_ROLE_NAME=default_tes_role_name
-export TES_ROLE_ALIAS_NAME=default_tes_role_alias_name
-export COMPONENT_DEFAULT_USER=default_component_user
-export DEPLOY_DEV_TOOLS=false
-export INIT_CONFIG=default_init_config
-export TRUSTED_PLUGIN=default_trusted_plugin_path
-export THING_POLICY_NAME=default_thing_policy_name
-
 apk add --repository http://dl-cdn.alpinelinux.org/alpine/v3.13/main python3~=3.8   # python3.8
 # apk add --repository http://dl-cdn.alpinelinux.org/alpine/v3.10/main python3~=3.7   # python3.7
 
