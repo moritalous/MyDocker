@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  kvs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    devices:
+      - /dev/video0
+    environment:
+      - STREAM_NAME=stream-name
+      - ACCESS_KEY=access-key
+      - SECRET_KEY=secret-key
+      - AWS_REGION=ap-northeast-1
