@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  work:
+    image: ubuntu:20.04
+    volumes:
+      - nfs-01:/mnt/01:z
+      - nfs-02:/mnt/02:z
+      - nfs-03:/mnt/03:z
+      - nfs-04:/mnt/04:z
+      - ~/:/mnt/host:z
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+
+volumes:
+  nfs-01:
+    driver_opts:
+      type: nfs
+      o: "port=2049,addr=192.168.0.11,rw,nfsvers=4"
+      device: ":/"
+  nfs-02:
+    driver_opts:
+      type: nfs
+      o: "port=2049,addr=192.168.0.12,rw,nfsvers=4"
+      device: ":/"
+  nfs-03:
+    driver_opts:
+      type: nfs
+      o: "port=2049,addr=192.168.0.13,rw,nfsvers=4"
+      device: ":/"
+  nfs-04:
+    driver_opts:
+      type: nfs
+      o: "port=2049,addr=192.168.0.14,rw,nfsvers=4"
+      device: ":/"

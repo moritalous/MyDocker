@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  nfs-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./exports:/exports
+    privileged: true
+    ports: 
+      - "2049:2049"
