@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  ssh-tunnel:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ~/.ssh:/home/ubuntu/.ssh
+    restart: always
+    user: "1000:1000"
+    ports:
+      - "8080:80"
+    command: ["-4", "-i", "~/.ssh/id_rsa.key", "-Nvg", "-L", "80:127.0.0.1:80", "ubuntu@xxx.xxx.xxx.xxx"]
