@@ -1,0 +1,14 @@
+{
+    "checkpointFile": "/tmp/aws-kinesis-agent-checkpoints/main.log",
+    "firehose.endpoint": "https://firehose.[region].amazonaws.com",
+    "awsAccessKeyId": "",
+    "awsSecretAccessKey": "",
+    "flows": [
+      {
+        "filePattern": "",
+        "initialPosition": "END_OF_FILE",
+        "deliveryStream": ""
+      }
+    ]
+  }
+  

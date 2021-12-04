@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  kinesis-agent:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - ./agent.json:/etc/aws-kinesis/agent.json
+    command: sh -c '/etc/init.d/aws-kinesis-agent start; sleep 30; tail -f /var/log/aws-kinesis-agent/aws-kinesis-agent.log'
