@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  simple-rtsp-server:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    volumes:
+      - ./rtsp-simple-server.yml:/rtsp-simple-server.yml
+    ports:
+      - "8554:8554"
