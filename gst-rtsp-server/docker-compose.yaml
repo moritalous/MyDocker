@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  gst-rtsp-server:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - "8554:8554"
